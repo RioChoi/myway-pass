@@ -1,0 +1,27 @@
+{
+  "base": "https://myway-pass-choi-2026.goldenloom32.chatgpt.site",
+  "at": "2026-10-22T12:46:13.925Z",
+  "paidCalls": false,
+  "results": [
+    {
+      "name": "빈 값·긴 입력·잘못된 JSON 거부",
+      "passed": true
+    },
+    {
+      "name": "바이트 제한·미지원 형식·토큰 제한",
+      "passed": true
+    },
+    {
+      "name": "상태 응답 최소화·캐시 금지·알 수 없는 API 거부",
+      "passed": true
+    },
+    {
+      "name": "환경 파일·Git 메타데이터 비공개",
+      "passed": true
+    },
+    {
+      "name": "라이선스 고지 제공",
+      "passed": true
+    }
+  ]
+}

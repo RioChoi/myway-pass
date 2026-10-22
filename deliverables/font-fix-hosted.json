@@ -1,0 +1,58 @@
+[
+  {
+    "result": {
+      "source": "jev",
+      "model": "jev-1.14.0",
+      "scores": {
+        "font": 1,
+        "buttons": 0.26,
+        "contrast": 0.28,
+        "easy": 0.36,
+        "voice": 0.05,
+        "touch": 0.06
+      },
+      "suggestions": [
+        "font"
+      ],
+      "fontPreference": "small",
+      "fontConfidence": 1,
+      "fontProbabilities": {
+        "small": 1,
+        "normal": 0,
+        "large": 0,
+        "xlarge": 0,
+        "none": 0
+      },
+      "requiresAppUpdate": false,
+      "message": "추천된 설정을 확인하고 적용해 주세요."
+    },
+    "version": 2
+  },
+  {
+    "result": {
+      "source": "jev",
+      "model": "jev-1.14.0",
+      "scores": {
+        "font": 1,
+        "buttons": 0.25,
+        "contrast": 0.29,
+        "easy": 0.32,
+        "voice": 0.05,
+        "touch": 0.06
+      },
+      "suggestions": [],
+      "fontPreference": "small",
+      "fontConfidence": 1,
+      "fontProbabilities": {
+        "small": 1,
+        "normal": 0,
+        "large": 0,
+        "xlarge": 0,
+        "none": 0
+      },
+      "requiresAppUpdate": true,
+      "message": "요청한 글씨 크기는 앱 업데이트 후 적용할 수 있습니다."
+    },
+    "version": 1
+  }
+]

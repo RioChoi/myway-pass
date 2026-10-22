@@ -1,0 +1,15 @@
+{
+  "base": "http://127.0.0.1:4173",
+  "checks": [
+    {
+      "sector": "cafe",
+      "font": "small",
+      "passed": true
+    },
+    {
+      "sector": "hospital",
+      "font": "small",
+      "passed": true
+    }
+  ]
+}

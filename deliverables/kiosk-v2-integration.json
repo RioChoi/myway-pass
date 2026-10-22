@@ -1,0 +1,43 @@
+{
+  "base": "http://127.0.0.1:4173",
+  "at": "2026-10-22T07:15:53.322Z",
+  "live": true,
+  "results": [
+    {
+      "name": "별도 진입 경로와 랜딩 제거",
+      "passed": true
+    },
+    {
+      "name": "연결번호 한 번 사용·동일 프로필·7단계",
+      "passed": true
+    },
+    {
+      "name": "카페 승인 거절→재시도→서버 가격·중복 방지·세션 삭제",
+      "passed": true
+    },
+    {
+      "name": "카페 가격·상품·개인정보 주입 거부",
+      "passed": true
+    },
+    {
+      "name": "실손 서류·동의 필수와 가상 전송 결과",
+      "passed": true
+    },
+    {
+      "name": "기본 모드·잘못된 QR 프로필·연결번호·출처 처리",
+      "passed": true
+    },
+    {
+      "name": "cafe OpenAI 실제 호출·7단계 검증",
+      "passed": true
+    },
+    {
+      "name": "hospital OpenAI 실제 호출·7단계 검증",
+      "passed": true
+    },
+    {
+      "name": "Jev 실제 추천",
+      "passed": true
+    }
+  ]
+}

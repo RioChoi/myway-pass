@@ -1,0 +1,161 @@
+{
+  "testedAt": "2026-10-20T17:08:00.218Z",
+  "base": "https://myway-pass-choi-2026.goldenloom32.chatgpt.site",
+  "results": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/profile",
+      "status": 200
+    },
+    {
+      "path": "/kiosk?sector=hospital",
+      "status": 200
+    },
+    {
+      "path": "/kiosk?sector=cafe",
+      "status": 200
+    },
+    {
+      "path": "/downloads/myway-pass-debug.apk",
+      "status": 200
+    },
+    {
+      "name": "Android CORS",
+      "status": 200,
+      "origin": "https://localhost"
+    },
+    {
+      "name": "Hosted Jev",
+      "source": "jev",
+      "model": "jev-1.13.0",
+      "scores": {
+        "font": 0.93,
+        "buttons": 0.31,
+        "contrast": 0.32,
+        "easy": 0.38,
+        "voice": 0.06,
+        "touch": 0.04
+      }
+    },
+    {
+      "name": "Hosted hospital",
+      "source": "openai",
+      "reason": "필수 동작·문구 검증 통과",
+      "latencyMs": 2594,
+      "plan": {
+        "screens": [
+          {
+            "id": "department",
+            "template": "list",
+            "title": "어느 진료과를 선택하시겠어요?",
+            "guide": "원하시는 진료과를 골라 주세요.",
+            "actionIds": [
+              "internal",
+              "family",
+              "orthopedic"
+            ]
+          },
+          {
+            "id": "visit",
+            "template": "list",
+            "title": "방문 목적을 선택해 주세요",
+            "guide": "해당하는 항목을 골라 주세요.",
+            "actionIds": [
+              "reserved",
+              "walkin"
+            ]
+          },
+          {
+            "id": "confirm",
+            "template": "step",
+            "title": "접수 내용을 확인해 주세요",
+            "guide": "선택한 내용을 확인한 뒤 다음으로 진행해 주세요.",
+            "actionIds": [
+              "confirm",
+              "back"
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "schema": "myway.handoff.v1",
+        "id": "0676fd02-44b1-4c3e-9916-b2bcb114f75d",
+        "simulation": true,
+        "createdAt": "2026-10-20T17:07:56.755Z",
+        "type": "registration",
+        "department": "internal",
+        "visit": "reserved",
+        "queue": "A-75D",
+        "status": "accepted"
+      }
+    },
+    {
+      "name": "Hosted cafe",
+      "source": "openai",
+      "reason": "필수 동작·문구 검증 통과",
+      "latencyMs": 2273,
+      "plan": {
+        "screens": [
+          {
+            "id": "menu",
+            "template": "grid",
+            "title": "어떤 음료를 드릴까요?",
+            "guide": "원하는 음료를 골라 주세요.",
+            "actionIds": [
+              "americano",
+              "latte",
+              "tea",
+              "chocolate"
+            ]
+          },
+          {
+            "id": "options",
+            "template": "grid",
+            "title": "준비 방법을 골라 주세요",
+            "guide": "온도와 이용 방법을 선택해 주세요.",
+            "actionIds": [
+              "hot",
+              "iced",
+              "here",
+              "takeout",
+              "next"
+            ]
+          },
+          {
+            "id": "confirm",
+            "template": "step",
+            "title": "주문을 확인해 주세요",
+            "guide": "선택한 내용을 확인한 뒤 완료해 주세요.",
+            "actionIds": [
+              "confirm",
+              "back"
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "schema": "myway.handoff.v1",
+        "id": "0739d5c4-5024-4168-8dd5-57dc00f23c56",
+        "simulation": true,
+        "createdAt": "2026-10-20T17:07:59.764Z",
+        "type": "order",
+        "items": [
+          {
+            "sku": "latte",
+            "name": "카페 라테",
+            "quantity": 1,
+            "unitPrice": 4200,
+            "temperature": "iced"
+          }
+        ],
+        "service": "takeout",
+        "total": 4200,
+        "currency": "KRW",
+        "paymentStatus": "simulation_only"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "bytes": 4366704,
+  "version": "1.1",
+  "paths": [
+    "/cafe",
+    "/hospital",
+    "/profile",
+    "/verification"
+  ],
+  "versionCode": 2,
+  "sha256": "ca5451fdcb3e7ce5deb50075689da76ba2efdfea8fa0d35f77f9b6529f2937f8"
+}

@@ -1,0 +1,12 @@
+import {build} from 'esbuild';
+import {test,after} from 'node:test';
+import assert from 'node:assert/strict';
+const env={};globalThis.__mywayTestEnv=env;
+const b=await build({entryPoints:['lib/ai.ts'],bundle:true,write:false,platform:'node',format:'esm',plugins:[{name:'test-bindings',setup(build){build.onResolve({filter:/^cloudflare:workers$/},()=>({path:'env',namespace:'fixture'}));build.onResolve({filter:/^\.\/store$/},()=>({path:'store',namespace:'fixture'}));build.onLoad({filter:/.*/,namespace:'fixture'},({path})=>({contents:path==='env'?'export const env=globalThis.__mywayTestEnv;':'export async function limit(){}'}));}}]});
+const {generatePlan,recommend}=await import('data:text/javascript;base64,'+Buffer.from(b.outputFiles[0].text).toString('base64'));
+const p={version:1,font:'large',buttons:'large',contrast:false,easy:true,voice:false,rate:.85,touch:true};
+const originalFetch=globalThis.fetch;
+after(()=>{globalThis.fetch=originalFetch;delete globalThis.__mywayTestEnv;});
+test('키 미설정 시 모델 결과라고 표시하지 않는다',async()=>{assert.equal((await generatePlan('hospital',p,{width:1024,height:768})).source,'fallback');assert.equal((await recommend('큰 글씨를 원해요')).source,'manual');});
+test('서버 오류·타임아웃·잘못된 구성·모델 거절은 검수 화면으로 전환',async()=>{env.OPENAI_API_KEY='test-only-placeholder';for(const response of [async()=>new Response('',{status:503}),async()=>{throw new DOMException('Timeout','TimeoutError');},async()=>Response.json({status:'completed',output:[{content:[{type:'output_text',text:'{"screens":[]}'}]}]}),async()=>Response.json({status:'completed',output:[{content:[{type:'refusal'}]}]})]){globalThis.fetch=response;const r=await generatePlan('cafe',p,{width:1024,height:768});assert.equal(r.source,'fallback');assert.equal(r.plan.screens[0].actionIds.length,6);}});
+test('AI 기능 비활성 시 외부 호출을 막는다',async()=>{env.AI_ENABLED='false';let called=false;globalThis.fetch=async()=>{called=true;return Response.json({});};assert.equal((await generatePlan('hospital',p,{width:1024,height:768})).source,'fallback');assert.equal(called,false);});

@@ -1,0 +1,114 @@
+[
+  {
+    "result": {
+      "source": "jev",
+      "model": "jev-1.14.0",
+      "scores": {
+        "font": 0.82,
+        "buttons": 0.38,
+        "contrast": 0.45,
+        "easy": 0.53,
+        "voice": 0.05,
+        "touch": 0.06
+      },
+      "suggestions": [
+        "font"
+      ],
+      "message": "필요한 기능인지 확인하고 적용해 주세요."
+    },
+    "input": "글씨를 크게 보고 싶어"
+  },
+  {
+    "result": {
+      "source": "jev",
+      "model": "jev-1.14.0",
+      "scores": {
+        "font": 0.74,
+        "buttons": 0.32,
+        "contrast": 0.24,
+        "easy": 0.35,
+        "voice": 0.07,
+        "touch": 0.07
+      },
+      "suggestions": [],
+      "message": "필요한 기능인지 확인하고 적용해 주세요."
+    },
+    "input": "글씨 크게"
+  },
+  {
+    "result": {
+      "source": "jev",
+      "model": "jev-1.14.0",
+      "scores": {
+        "font": 0.77,
+        "buttons": 0.17,
+        "contrast": 0.54,
+        "easy": 0.33,
+        "voice": 0.15,
+        "touch": 0.06
+      },
+      "suggestions": [
+        "font"
+      ],
+      "message": "필요한 기능인지 확인하고 적용해 주세요."
+    },
+    "input": "화면 글씨 키워줘"
+  },
+  {
+    "result": {
+      "source": "jev",
+      "model": "jev-1.14.0",
+      "scores": {
+        "font": 0.79,
+        "buttons": 0.39,
+        "contrast": 0.34,
+        "easy": 0.3,
+        "voice": 0.05,
+        "touch": 0.07
+      },
+      "suggestions": [
+        "font"
+      ],
+      "message": "필요한 기능인지 확인하고 적용해 주세요."
+    },
+    "input": "큰 글씨로 보여주세요"
+  },
+  {
+    "result": {
+      "source": "jev",
+      "model": "jev-1.14.0",
+      "scores": {
+        "font": 0.86,
+        "buttons": 0.25,
+        "contrast": 0.3,
+        "easy": 0.39,
+        "voice": 0.06,
+        "touch": 0.04
+      },
+      "suggestions": [
+        "font"
+      ],
+      "message": "필요한 기능인지 확인하고 적용해 주세요."
+    },
+    "input": "글씨가 너무 작아요"
+  },
+  {
+    "result": {
+      "source": "jev",
+      "model": "jev-1.14.0",
+      "scores": {
+        "font": 0.07,
+        "buttons": 0.18,
+        "contrast": 0.23,
+        "easy": 0.52,
+        "voice": 0.86,
+        "touch": 0.05
+      },
+      "suggestions": [
+        "voice"
+      ],
+      "message": "필요한 기능인지 확인하고 적용해 주세요."
+    },
+    "input": "글씨는 크게 하지 말고 소리로 읽어줘"
+  }
+]

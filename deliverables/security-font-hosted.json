@@ -1,0 +1,15 @@
+{
+  "base": "https://myway-pass-choi-2026.goldenloom32.chatgpt.site",
+  "checks": [
+    {
+      "sector": "cafe",
+      "font": "small",
+      "passed": true
+    },
+    {
+      "sector": "hospital",
+      "font": "small",
+      "passed": true
+    }
+  ]
+}

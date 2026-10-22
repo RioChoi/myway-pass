@@ -1,0 +1,23 @@
+{
+  "counts": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 8,
+    "critical": 0,
+    "total": 8
+  },
+  "packages": [
+    "@next/eslint-plugin-next",
+    "braces",
+    "eslint-config-next",
+    "fast-glob",
+    "micromatch",
+    "vinext",
+    "vite-plugin-commonjs",
+    "vite-plugin-dynamic-import"
+  ],
+  "advisories": [
+    "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+  ]
+}

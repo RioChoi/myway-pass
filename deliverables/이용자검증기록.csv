@@ -1,0 +1,1 @@
+participant_id,sector,mode,actual_source,task,completed,seconds_excluding_ai_wait,ai_wait_ms,observed_misselections,app_errors,help_requests,notes

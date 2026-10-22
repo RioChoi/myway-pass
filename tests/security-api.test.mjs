@@ -1,0 +1,15 @@
+import {build} from 'esbuild';
+import {test,after} from 'node:test';
+import assert from 'node:assert/strict';
+import path from 'node:path';
+globalThis.__securityAuditCalls=0;
+const result=await build({entryPoints:['app/api/[...path]/route.ts'],bundle:true,write:false,platform:'node',format:'esm',alias:{'@':path.resolve('.')},plugins:[{name:'audit-bindings',setup(b){b.onResolve({filter:/^(cloudflare:workers|@\/lib\/store|@\/lib\/ai)$/},args=>({path:args.path,namespace:'audit'}));b.onLoad({filter:/.*/,namespace:'audit'},({path:p})=>({contents:p==='cloudflare:workers'?'export const env={};':p.endsWith('/ai')?'export const readiness=()=>({openai:true,jev:true,enabled:true,limit:100});export async function recommend(){globalThis.__securityAuditCalls++;return {};}export async function generatePlan(){throw Error("not used");}':'export async function limit(){} export const hash=async v=>v;export const clean=async()=>{};export const put=async()=>{};export const get=async()=>null;export const consume=async()=>null;export function db(){throw Error("private-database-marker");}'}));}}]});
+const route=await import('data:text/javascript;base64,'+Buffer.from(result.outputFiles[0].text).toString('base64'));
+const req=(action,body)=>new Request('https://demo.test/api/'+action,{method:'POST',headers:{'content-type':'application/json'},body:typeof body==='string'?body:JSON.stringify(body)});
+const p={version:1,font:'normal',buttons:'normal',contrast:false,easy:false,voice:false,rate:.85,touch:false};
+after(()=>delete globalThis.__securityAuditCalls);
+test('공개 상태 응답에 예산·키를 넣지 않고 알 수 없는 GET 경로는 거부한다',async()=>{const r=await route.GET(new Request('https://demo.test/api/status'));const body=await r.json();assert.deepEqual(body.providers,{openai:true,jev:true,enabled:true});assert.equal(r.headers.get('cache-control'),'no-store');assert.equal(r.headers.get('x-content-type-options'),'nosniff');assert.equal((await route.GET(new Request('https://demo.test/api/unknown'))).status,404);});
+test('빈 추천·긴 추천·잘못된 JSON은 AI 호출 전에 거부한다',async()=>{for(const b of [{text:''},{text:'   '},{text:'x'.repeat(601)},'null','[]','{'])assert.equal((await route.POST(req('recommend',b))).status,400);assert.equal(globalThis.__securityAuditCalls,0);});
+test('본문 한도와 요청 형식을 API에서도 강제한다',async()=>{assert.equal((await route.POST(req('recommend',{text:'x'.repeat(9000)}))).status,413);const r=new Request('https://demo.test/api/recommend',{method:'POST',headers:{'content-type':'text/plain'},body:'{}'});assert.equal((await route.POST(r)).status,415);});
+test('내부 DB 오류의 상세 내용을 응답에 노출하지 않는다',async()=>{const r=await route.POST(req('link',{profile:p}));assert.equal(r.status,500);assert(!(await r.text()).includes('private-database-marker'));});
+test('빈 연결번호는 프로필이 있어도 우회할 수 없다',async()=>{assert.equal((await route.POST(req('session',{sector:'cafe',mode:'rules',profile:p,code:'',device:{width:800,height:1280}}))).status,400);});

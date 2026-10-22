@@ -1,0 +1,254 @@
+{
+  "base": "http://127.0.0.1:4173",
+  "at": "2026-10-22T08:16:36.656Z",
+  "results": [
+    {
+      "text": "작은 글씨로 보고 싶다",
+      "expectedFont": "small",
+      "passed": true,
+      "result": {
+        "source": "jev",
+        "model": "jev-1.14.0",
+        "scores": {
+          "font": 1,
+          "buttons": 0.29,
+          "contrast": 0.28,
+          "easy": 0.32,
+          "voice": 0.06,
+          "touch": 0.07
+        },
+        "suggestions": [
+          "font"
+        ],
+        "fontPreference": "small",
+        "fontConfidence": 1,
+        "fontProbabilities": {
+          "small": 1,
+          "normal": 0,
+          "large": 0,
+          "xlarge": 0,
+          "none": 0
+        },
+        "requiresAppUpdate": false,
+        "message": "추천된 설정을 확인하고 적용해 주세요."
+      }
+    },
+    {
+      "text": "글씨 작게",
+      "expectedFont": "small",
+      "passed": true,
+      "result": {
+        "source": "jev",
+        "model": "jev-1.14.0",
+        "scores": {
+          "font": 1,
+          "buttons": 0.13,
+          "contrast": 0.19,
+          "easy": 0.31,
+          "voice": 0.06,
+          "touch": 0.08
+        },
+        "suggestions": [
+          "font"
+        ],
+        "fontPreference": "small",
+        "fontConfidence": 1,
+        "fontProbabilities": {
+          "small": 1,
+          "normal": 0,
+          "large": 0,
+          "xlarge": 0,
+          "none": 0
+        },
+        "requiresAppUpdate": false,
+        "message": "추천된 설정을 확인하고 적용해 주세요."
+      }
+    },
+    {
+      "text": "글씨가 너무 커요",
+      "expectedFont": "small",
+      "passed": true,
+      "result": {
+        "source": "jev",
+        "model": "jev-1.14.0",
+        "scores": {
+          "font": 1,
+          "buttons": 0.22,
+          "contrast": 0.22,
+          "easy": 0.38,
+          "voice": 0.05,
+          "touch": 0.07
+        },
+        "suggestions": [
+          "font"
+        ],
+        "fontPreference": "small",
+        "fontConfidence": 1,
+        "fontProbabilities": {
+          "small": 1,
+          "normal": 0,
+          "large": 0,
+          "xlarge": 0,
+          "none": 0
+        },
+        "requiresAppUpdate": false,
+        "message": "추천된 설정을 확인하고 적용해 주세요."
+      }
+    },
+    {
+      "text": "글씨 크게",
+      "expectedFont": "large",
+      "passed": true,
+      "result": {
+        "source": "jev",
+        "model": "jev-1.14.0",
+        "scores": {
+          "font": 1,
+          "buttons": 0.33,
+          "contrast": 0.24,
+          "easy": 0.35,
+          "voice": 0.06,
+          "touch": 0.08
+        },
+        "suggestions": [
+          "font"
+        ],
+        "fontPreference": "large",
+        "fontConfidence": 1,
+        "fontProbabilities": {
+          "small": 0,
+          "normal": 0,
+          "large": 1,
+          "xlarge": 0,
+          "none": 0
+        },
+        "requiresAppUpdate": false,
+        "message": "추천된 설정을 확인하고 적용해 주세요."
+      }
+    },
+    {
+      "text": "기본 글씨 크기로 돌려줘",
+      "expectedFont": "normal",
+      "passed": true,
+      "result": {
+        "source": "jev",
+        "model": "jev-1.14.0",
+        "scores": {
+          "font": 1,
+          "buttons": 0.14,
+          "contrast": 0.16,
+          "easy": 0.45,
+          "voice": 0.04,
+          "touch": 0.07
+        },
+        "suggestions": [
+          "font"
+        ],
+        "fontPreference": "normal",
+        "fontConfidence": 1,
+        "fontProbabilities": {
+          "small": 0,
+          "normal": 1,
+          "large": 0,
+          "xlarge": 0,
+          "none": 0
+        },
+        "requiresAppUpdate": false,
+        "message": "추천된 설정을 확인하고 적용해 주세요."
+      }
+    },
+    {
+      "text": "글씨 아주 크게",
+      "expectedFont": "xlarge",
+      "passed": true,
+      "result": {
+        "source": "jev",
+        "model": "jev-1.14.0",
+        "scores": {
+          "font": 0.99,
+          "buttons": 0.32,
+          "contrast": 0.2,
+          "easy": 0.37,
+          "voice": 0.06,
+          "touch": 0.07
+        },
+        "suggestions": [
+          "font"
+        ],
+        "fontPreference": "xlarge",
+        "fontConfidence": 0.99,
+        "fontProbabilities": {
+          "small": 0,
+          "normal": 0,
+          "large": 0.01,
+          "xlarge": 0.99,
+          "none": 0
+        },
+        "requiresAppUpdate": false,
+        "message": "추천된 설정을 확인하고 적용해 주세요."
+      }
+    },
+    {
+      "text": "글씨는 크게 하지 말고 소리로 읽어줘",
+      "expectedFont": null,
+      "passed": true,
+      "result": {
+        "source": "jev",
+        "model": "jev-1.14.0",
+        "scores": {
+          "font": 0,
+          "buttons": 0.14,
+          "contrast": 0.22,
+          "easy": 0.48,
+          "voice": 0.84,
+          "touch": 0.06
+        },
+        "suggestions": [
+          "voice"
+        ],
+        "fontConfidence": 0.87,
+        "fontProbabilities": {
+          "small": 0.1,
+          "normal": 0,
+          "large": 0,
+          "xlarge": 0,
+          "none": 0.9
+        },
+        "requiresAppUpdate": false,
+        "message": "추천된 설정을 확인하고 적용해 주세요."
+      }
+    },
+    {
+      "text": "작은 글씨가 잘 안 보여서 크게 보고 싶어요. 손이 떨려서 자꾸 두 번 눌러요. 소리로 읽는 건 원하지 않아요.",
+      "expectedFont": "large",
+      "passed": true,
+      "result": {
+        "source": "jev",
+        "model": "jev-1.14.0",
+        "scores": {
+          "font": 1,
+          "buttons": 0.7,
+          "contrast": 0.43,
+          "easy": 0.51,
+          "voice": 0.03,
+          "touch": 0.91
+        },
+        "suggestions": [
+          "font",
+          "touch"
+        ],
+        "fontPreference": "large",
+        "fontConfidence": 1,
+        "fontProbabilities": {
+          "small": 0,
+          "normal": 0,
+          "large": 1,
+          "xlarge": 0,
+          "none": 0
+        },
+        "requiresAppUpdate": false,
+        "message": "추천된 설정을 확인하고 적용해 주세요."
+      }
+    }
+  ]
+}

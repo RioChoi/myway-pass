@@ -1,0 +1,11 @@
+'use client';
+import {useState} from 'react';
+import KioskExperience from './KioskExperience';
+import {friendlyProfile,type Sector,type Mode,modeNames} from '@/lib/domain';
+import {rulePlan} from '@/lib/workflows';
+import {saveFile} from '@/lib/client';
+export default function Verification(){
+ const [sector,setSector]=useState<Sector>('cafe'),[mode,setMode]=useState<Mode>('rules'),[records,setRecords]=useState<any[]>([]);
+ const normal=rulePlan(sector,{...friendlyProfile,easy:false}),easy=rulePlan(sector,{...friendlyProfile,easy:true});
+ return <main className="verification"><h1>접근성 비교·검증</h1><p>검증용 경로입니다. 기록은 이 브라우저에만 보관되며 실제 이용자 연구 결과와 구분합니다.</p><div className="verification-controls"><label>분야 <select value={sector} onChange={e=>setSector(e.target.value as Sector)}><option value="cafe">카페</option><option value="hospital">실손보험 청구</option></select></label><label>화면 모드 <select value={mode} onChange={e=>setMode(e.target.value as Mode)}>{Object.entries(modeNames).map(([v,n])=><option key={v} value={v}>{n}</option>)}</select></label><a href="/profile?settings=1">프로필·개발 연결 설정</a><a href="/cafe">카페</a><a href="/hospital">병원</a></div><details><summary>검수된 일반 문구 / 쉬운 문구 비교</summary>{normal.screens.map((s,i)=><div className="comparison" key={s.id}><div><h3>{s.id} · 일반</h3><p>{s.title}</p><p>{s.guide}</p><p>{Object.values(s.actionLabels).join(' / ')}</p></div><div><h3>쉬운 말</h3><p>{easy.screens[i].title}</p><p>{easy.screens[i].guide}</p><p>{Object.values(easy.screens[i].actionLabels).join(' / ')}</p></div></div>)}</details><KioskExperience key={sector+mode} sector={sector} mode={mode} verification/><section className="verification-table"><button className="terminal-button" onClick={()=>{try{setRecords(JSON.parse(localStorage.getItem('myway.metrics')||'[]'));}catch{setRecords([]);}}}>기록 새로고침</button><button className="terminal-button" onClick={()=>saveFile('myway-verification.json',records)}>표시된 기록 저장</button><table><thead><tr><th>분야</th><th>모드</th><th>실제 구성 출처</th><th>시간</th><th>오류</th><th>도움</th><th>AI 지연</th><th>완료</th></tr></thead><tbody>{records.map((r,i)=><tr key={i}><td>{r.sector}</td><td>{r.mode}</td><td>{r.source}</td><td>{r.seconds}초</td><td>{r.errors}</td><td>{r.help}</td><td>{r.aiLatencyMs}ms</td><td>{String(r.completed)}</td></tr>)}</tbody></table></section></main>;
+}
